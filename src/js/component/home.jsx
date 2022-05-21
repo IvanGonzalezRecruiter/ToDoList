@@ -1,30 +1,26 @@
 import React, { useState } from "react";
 
-//include images into your bundle
-
 export function Home() {
-	// Creates todo list
 	const [list, setList] = useState([
-		{ label: "Walk the dog", isDone: false },
-		{ label: "Do some laundry", isDone: false },
-		{ label: "Finish up React projects", isDone: false },
+		{ label: "Pasear al perro", isDone: false },
+		{ label: "Montársela a Martin Coimbra", isDone: false },
+		{ label: "No dar papaya con los parceros", isDone: false },
+		{ label: "Bailar vallenato con Karen", isDone: false },
+		{ label: "Pasear en Abbey Road con Ángela", isDone: false },
+		{ label: "Hacer las tareas de 4Geeks", isDone: false },
 	]);
 
-	// Creates todo item
 	const [todo, setTodo] = useState("");
 
-	// e = event | Function handles submit
 	const addTodo = (e) => {
 		if (e.key === "Enter" && todo !== "") {
 			setList(
 				list.concat({
-					// Assigns todo value to label
 					label: todo,
 					isDone: false,
 				})
 			);
 
-			// Resets todo back to empty string
 			setTodo("");
 		}
 	};
@@ -35,49 +31,45 @@ export function Home() {
 
 	return (
 		<div className="d-flex flex-column align-items-center justify-content-center h-100">
-			<h1>To Do</h1>
-			{/* When enter is pressed, the function "addTodo" runs */}
+			<h1>Por hacer</h1>
+			{}
 			<form onSubmit={(e) => e.preventDefault()}>
 				<ul className="list-unstyled d-flex flex-column p-0">
 					<li>
 						<input
 							type="text"
-							placeholder="What has to be done?"
+							placeholder="¿Qué mierdas hay qué hacer?"
 							className="form-control"
 							value={todo}
-							/* When user changes content of input field, event will trigger setTodo */
 							onChange={(e) => setTodo(e.target.value)}
 							onKeyPress={(e) => addTodo(e)}
 						/>
 					</li>
-					{
-						// Loop to create li
-						list.map((item, index) => {
-							return (
-								<li key={index} className="d-flex listItem">
-									{item.label}
-									<span
-										className="ml-auto"
-										role="button"
-										tabIndex="0"
-										onClick={() => removeTodo(index)}>
-										/>
-									</span>
-								</li>
-							);
-						})
-					}
+					{list.map((item, index) => {
+						return (
+							<li key={index} className="d-flex listItem">
+								{item.label}
+								<span
+									className="ml-auto"
+									role="button"
+									tabIndex="0"
+									onClick={() => removeTodo(index)}>
+									/>
+								</span>
+							</li>
+						);
+					})}
 					<li className="mt-3 d-inline-flex align-items-center">
 						<span id="number">{list.length}</span>
 						&nbsp;item
-						{list.length > 1 || list.length === 0 ? "s" : null} left
+						{list.length > 1 || list.length === 0 ? "s" : null}{" "}
+						agregados
 						<span className="ml-auto">
 							<a
 								href="#"
 								className="btn btn-small btn-outline-info"
-								// Messes up add todo and leaves one empty li
 								onClick={() => setList([])}>
-								Clear List
+								Borrar Lista
 							</a>
 						</span>
 					</li>
