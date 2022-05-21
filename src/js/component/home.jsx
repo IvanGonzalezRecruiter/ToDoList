@@ -61,9 +61,6 @@ export function Home() {
 										role="button"
 										tabIndex="0"
 										onClick={() => removeTodo(index)}>
-										<FontAwesomeIcon
-											className="icon"
-											icon={faTimes}
 										/>
 									</span>
 								</li>
