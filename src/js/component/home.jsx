@@ -68,7 +68,9 @@ export function Home() {
 							<a
 								href="#"
 								className="btn btn-small btn-outline-info"
-								onClick={() => setList([])}></a>
+								onClick={() => setList([])}>
+								_______Borrar Lista
+							</a>
 						</span>
 					</li>
 				</ul>
