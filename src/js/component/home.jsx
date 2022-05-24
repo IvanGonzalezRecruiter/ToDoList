@@ -38,7 +38,7 @@ export function Home() {
 					<li>
 						<input
 							type="text"
-							placeholder="¿Qué mierdas hay qué hacer?"
+							placeholder="¿Qué hay pa' hacer?"
 							className="form-control"
 							value={todo}
 							onChange={(e) => setTodo(e.target.value)}
@@ -54,7 +54,7 @@ export function Home() {
 									role="button"
 									tabIndex="0"
 									onClick={() => removeTodo(index)}>
-									/>
+									____________________x
 								</span>
 							</li>
 						);
@@ -68,9 +68,7 @@ export function Home() {
 							<a
 								href="#"
 								className="btn btn-small btn-outline-info"
-								onClick={() => setList([])}>
-								Borrar Lista
-							</a>
+								onClick={() => setList([])}></a>
 						</span>
 					</li>
 				</ul>
